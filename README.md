@@ -76,6 +76,10 @@ The repository is organized as follows:
   - `CITATION.cff`: Citation metadata format for referencing this research and software.
   - `LICENSE`: License terms and conditions for repository distribution.
 
+## Dataset
+
+The dataset contains Habeas Corpus proceedings adjudicated by the Superior Court of Justice (STJ) between 2021 and 2025, including both monocratic decisions and collegiate judgments (acórdãos) obtained from the court's Open Data Portal. A total of 404,578 records were extracted and labeled according to the judgment outcome, resulting in a binary classification task with the classes granted and denied, and were partitioned into training and test sets using a 70/30 split. The final dataset presents a severe class imbalance, with a substantial predominance of denied petitions over granted petitions, reflecting the distribution observed in real judicial practice.
+
 ## Citation
 
 If you use this repository in academic work, please cite the associated paper.
