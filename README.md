@@ -54,7 +54,8 @@ The repository is organized as follows:
         ├── Preprocess_PUCPR_DataSet_STJ.ipynb
         ├── preprocessing_pucpr.ipynb
         ├── EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
-        └── BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
+        ├── BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
+        └── README.md
 ```
 
 ### Directory & File Descriptions
@@ -70,6 +71,7 @@ The repository is organized as follows:
   - Git submodule linking to the extraction tool used to harvest raw Habeas Corpus proceedings and judicial metadata from the STJ Open Data Portal.
 
 - **`src/jupyter-notebooks/`**:
+  - Detailed parameter guide and step-by-step instructions available in [`src/jupyter-notebooks/README.md`](src/jupyter-notebooks/README.md).
   - `Preprocess_PUCPR_DataSet_STJ.ipynb`: Loads extracted decisions, parses judicial metadata (judge/rapporteur, case registry, full text), and formats binary classification labels.
   - `preprocessing_pucpr.ipynb`: Implements text normalization routines and linguistic preprocessing considerations specifically designed for legal texts.
   - `EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`: Conducts exploratory data analysis, token length distribution profiling, undersampling for class balance, and dataset splitting for short vs. long text evaluation.
