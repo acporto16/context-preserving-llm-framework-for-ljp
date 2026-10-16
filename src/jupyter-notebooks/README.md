@@ -66,7 +66,7 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 - **Key Functionality**:
   - **Exploratory Data Analysis**: Generates publication-ready stacked visualizations of proceeding volumes, class ratios over time, and outcome distributions.
   - **Tokenization Profiling**: Measures token counts in the `RELATORIO` field using BERT tokenizers, identifying long-document frontiers exceeding the 512-token limit.
-  - **Empirical Thresholding**: Separates short legal documents ($\le 512$ tokens) from long documents ($> 512$ tokens, up to several thousand tokens).
+  - **Empirical Thresholding**: Separates short legal documents ($\le 510$ tokens) from long documents ($> 510$ tokens, up to several thousand tokens), strictly reserving 2 positions for the `[CLS]` and `[SEP]` special tokens within the model's 512-token maximum capacity.
   - **Class Undersampling & Outlier Filtering**: Mitigates severe real-world class imbalance (predominance of denied petitions) by undersampling majority classes, while filtering extreme token length outliers.
   - **Stratified Partitioning**: Generates reproducible, stratified train/test partitions (e.g., 70/30 in v4, 80/20 in v5) saved as separate versioned CSV files.
   - **Inference Trade-off Dataset Preparation**: Samples dedicated subsets for subsequent inference latency benchmarking.
@@ -85,10 +85,10 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 - **Purpose**: Executes model training, representation aggregation (sliding-window + pooling), performance evaluation, and inference latency profiling across BERT-based models.
 - **Key Functionality**:
   - **Multiple Model Architectures**: Supports benchmarking across domain-specific and general-purpose backbones:
-    - Legal BERT (`dominguesm/legal-bert-base-cased-ptbr`)
+    - Legal BERT
     - Legal-BERTimbau
-    - BERTimbau Base & Large (`neuralmind/bert-base-portuguese-cased`, `bert-large-...`)
-    - Multilingual BERT (`bert-base-multilingual-cased`)
+    - BERTimbau Base
+    - Multilingual BERT
   - **Sliding-Window & Context Preservation**:
     - Chunks long legal documents exceeding 512 tokens with configurable stride and overlap (e.g., Stride 0 / contiguous chunks, Stride 128, Stride 256, Stride 384).
   - **Representation Aggregation**:
