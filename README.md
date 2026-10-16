@@ -55,6 +55,7 @@ The repository is organized as follows:
         ├── preprocessing_univ.ipynb
         ├── EDA_UNIV_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
         ├── BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
+        ├── requirements.txt
         └── README.md
 ```
 

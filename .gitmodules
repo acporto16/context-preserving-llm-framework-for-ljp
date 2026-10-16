@@ -1,3 +1,4 @@
 [submodule "src/UNIVExtracaoDadosAbertosSTJ"]
     path = src/UNIVExtracaoDadosAbertosSTJ
     url = https://github.com/acporto16/UNIVExtracaoDadosAbertosSTJ.git
+	branch = master

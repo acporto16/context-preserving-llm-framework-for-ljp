@@ -111,3 +111,27 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
   - `APPROACHES`: Dictionary enabling/disabling specific aggregation strategies (Truncation, Mean Pooling, Max Pooling with varied strides).
   - `BATCH_SIZE`, `EPOCHS`, `NROWS_LOADING`: Execution hyperparameters and optional sample size limits.
   - `DIAGNOSIS_MODE`: Runs sanity checks on tensors, embeddings, and chunks.
+
+---
+
+## Environment Setup & Dependencies
+
+### Python Runtime
+- **Python**: `>=3.12, <3.13` (Notebooks executed and verified on **Python 3.12.x**)
+
+### Installation
+
+To install all dependencies required across the notebooks, use the provided [`requirements.txt`](requirements.txt):
+
+```bash
+pip install -r requirements.txt
+```
+
+Additionally, the preprocessing module requires NLTK tokenizers and stopwords:
+
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+```
