@@ -1,2 +1,83 @@
-# context-preserving-llm-framework-for-ljp
-A Context-Preserving Large Language Model Framework for Legal Decision Prediction in Brazilian Habeas Corpus Proceedings
+# A Context-Preserving Large Language Model Framework for Legal Decision Prediction in Brazilian Habeas Corpus Proceedings
+
+This repository contains the source code and experimental implementations associated with the paper.
+
+## Abstract
+
+Legal Judgment Prediction using BERT-based language models faces a fundamental limitation when legal documents exceed the maximum input length supported by these models. In such cases, relevant information located beyond the initial input window may be disregarded, potentially affecting predictive performance. This repository accompanies a study that investigates the prediction of Habeas Corpus outcomes in the Brazilian Superior Court of Justice (STJ) using the textual content of judicial reports.The proposed framework addresses the challenge of processing long legal documents through a context-preserving strategy based on sliding-window segmentation and contextual representation aggregation. Long texts are divided into multiple chunks, which are processed by pretrained language models and combined using pooling mechanisms to preserve information distributed throughout the document. The experimental evaluation compares the traditional truncation approach with different sliding-window configurations using Legal BERT, Legal-BERTimbau, BERTimbau, and Multilingual BERT. Results demonstrate that preserving information beyond the initial BERT input window improves predictive performance for long legal texts. The best-performing configuration combines Legal BERT with Mean Pooling and no overlap between consecutive chunks, outperforming the traditional truncation strategy. The findings also show that increasing overlap between chunks does not necessarily improve predictive performance and may introduce additional computational cost. These results highlight the importance of balancing predictive effectiveness and inference efficiency when designing Legal Judgment Prediction systems for long legal documents.
+
+## Overview
+
+This framework addresses Legal Judgment Prediction (LJP) for Brazilian Habeas Corpus proceedings by combining pretrained BERT-based language models with a context-preserving sliding-window strategy. The methodology comprises four main stages: construction of a dataset from public STJ records, preprocessing and tokenization of judicial reports, segmentation of long documents into multiple chunks with configurable stride, and aggregation of chunk representations through pooling mechanisms for classification.
+
+<p align="center">
+  <img src="docs/archictecture/proposal.png" alt="Proposal" width="600">
+</p>
+
+The experimental evaluation compares traditional truncation against long-document processing strategies across general-purpose and legal-domain language models, assessing both predictive performance and computational cost.
+
+## Pipeline
+
+```text
+Extraction of Habeas Corpus Proceedings
+                 ↓
+         Data Preprocessing
+                 ↓
+       Dataset Construction
+                 ↓
+          Model Training
+```
+The pipeline begins with the extraction of Habeas Corpus proceedings from the STJ Open Data Portal, followed by data preprocessing and dataset construction. The resulting dataset is then used to train and evaluate language models for Legal Judgment Prediction in long legal documents.
+
+## Repository Organization
+
+The repository is organized as follows:
+
+```text
+.
+├── CITATION.cff
+├── LICENSE
+├── README.md
+├── data/
+│   └── dataset_decisoes_acordaos_HC_2021_2025.zip
+├── docs/
+│   └── archictecture/
+│       ├── proposal.pdf
+│       └── proposal.png
+└── src/
+    ├── PUCPRExtracaoDadosAbertosSTJ/       # Git submodule: STJ Open Data scraper
+    └── jupyter-notebooks/
+        ├── config_environment.ipynb
+        ├── preprocessing_pucpr.ipynb
+        ├── Preprocess_PUCPR_DataSet_STJ.ipynb
+        ├── EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
+        └── BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
+```
+
+### Directory & File Descriptions
+
+- **`data/`**:
+  - `dataset_decisoes_acordaos_HC_2021_2025.zip`: Compressed archive containing the dataset of STJ Habeas Corpus decisions and collegiate judgments (*acórdãos*) spanning from 2021 to 2025.
+
+- **`docs/archictecture/`**:
+  - `proposal.png` / `proposal.pdf`: Conceptual architecture and workflow diagrams illustrating the sliding-window chunking, transformer backbone processing, and contextual representation pooling mechanisms.
+
+- **`src/PUCPRExtracaoDadosAbertosSTJ/`**:
+  - Git submodule linking to the extraction tool used to harvest raw Habeas Corpus proceedings and judicial metadata from the STJ Open Data Portal.
+
+- **`src/jupyter-notebooks/`**:
+  - `config_environment.ipynb`: Defines execution environment parameters, dependency installations, path resolutions, and hardware configurations (e.g., Google Colab and GPU cluster settings).
+  - `Preprocess_PUCPR_DataSet_STJ.ipynb`: Loads extracted decisions, parses judicial metadata (judge/rapporteur, case registry, full text), and formats binary classification labels.
+  - `preprocessing_pucpr.ipynb`: Implements text normalization routines and linguistic preprocessing considerations specifically designed for legal texts.
+  - `EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`: Conducts exploratory data analysis, token length distribution profiling, undersampling for class balance, and dataset splitting for short vs. long text evaluation.
+  - `BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb`: Implements model training, fine-tuning, and inference across BERT-based models (Legal BERT, Legal-BERTimbau, BERTimbau, and Multilingual BERT), incorporating sliding-window segmentation, pooling aggregation strategies, ROC evaluation curves, and computational latency trade-offs.
+
+- **Root Files**:
+  - `CITATION.cff`: Citation metadata format for referencing this research and software.
+  - `LICENSE`: License terms and conditions for repository distribution.
+
+## Citation
+
+If you use this repository in academic work, please cite the associated paper.
+
+The repository also includes CITATION.cff for citation metadata.
