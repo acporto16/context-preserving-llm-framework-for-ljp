@@ -41,9 +41,13 @@ The repository is organized as follows:
 ├── data/
 │   └── dataset_decisoes_acordaos_HC_2021_2025.zip
 ├── docs/
-│   └── archictecture/
-│       ├── proposal.pdf
-│       └── proposal.png
+│   ├── archictecture/
+│   │   ├── proposal.pdf
+│   │   └── proposal.png
+│   └── samples/
+│       ├── 202500001724_DECISAO.pdf
+│       ├── 202500069962_ACORDAO.pdf
+│       └── README.md
 └── src/
     ├── PUCPRExtracaoDadosAbertosSTJ/       # Git submodule: STJ Open Data scraper
     └── jupyter-notebooks/
@@ -59,8 +63,9 @@ The repository is organized as follows:
 - **`data/`**:
   - `dataset_decisoes_acordaos_HC_2021_2025.zip`: Compressed archive containing the dataset of STJ Habeas Corpus decisions and collegiate judgments (*acórdãos*) spanning from 2021 to 2025.
 
-- **`docs/archictecture/`**:
-  - `proposal.png` / `proposal.pdf`: Conceptual architecture and workflow diagrams illustrating the sliding-window chunking, transformer backbone processing, and contextual representation pooling mechanisms.
+- **`docs/`**:
+  - `archictecture/`: Conceptual architecture and workflow diagrams illustrating the sliding-window chunking, transformer backbone processing, and contextual representation pooling mechanisms (`proposal.png` / `proposal.pdf`).
+  - `samples/`: Representative samples of STJ judicial documents (monocratic decision and collegiate judgment) for qualitative analysis of model inputs, with documentation and verification links to the official court portal.
 
 - **`src/PUCPRExtracaoDadosAbertosSTJ/`**:
   - Git submodule linking to the extraction tool used to harvest raw Habeas Corpus proceedings and judicial metadata from the STJ Open Data Portal.
@@ -78,7 +83,15 @@ The repository is organized as follows:
 
 ## Dataset
 
-The dataset contains Habeas Corpus proceedings adjudicated by the Superior Court of Justice (STJ) between 2021 and 2025, including both monocratic decisions and collegiate judgments (acórdãos) obtained from the court's Open Data Portal. A total of 404,578 records were extracted and labeled according to the judgment outcome, resulting in a binary classification task with the classes granted and denied, and were partitioned into training and test sets using a 70/30 split. The final dataset presents a severe class imbalance, with a substantial predominance of denied petitions over granted petitions, reflecting the distribution observed in real judicial practice.
+The dataset contains Habeas Corpus proceedings adjudicated by the Superior Court of Justice (STJ) between 2021 and 2025, including both monocratic decisions and collegiate judgments (*acórdãos*) obtained from the court's Open Data Portal. A total of 404,578 records were extracted and labeled according to the judgment outcome, resulting in a binary classification task with the classes granted and denied, and were partitioned into training and test sets using a 70/30 split. The final dataset presents a severe class imbalance, with a substantial predominance of denied petitions over granted petitions, reflecting the distribution observed in real judicial practice.
+
+### Document Samples & Public Access
+
+Representative samples of the raw judicial documents analyzed and classified by the models are available in the [`docs/samples/`](docs/samples/) directory:
+- **Monocratic Decision (*Decisão Monocrática*)**: [`202500001724_DECISAO.pdf`](docs/samples/202500001724_DECISAO.pdf)
+- **Collegiate Court Judgment (*Acórdão*)**: [`202500069962_ACORDAO.pdf`](docs/samples/202500069962_ACORDAO.pdf)
+
+These documents are public records from the Superior Court of Justice (STJ). The original proceedings and their complete procedural history can be consulted publicly on the official [STJ Procedural Search Portal](https://processo.stj.jus.br/processo/pesquisa/?aplicacao=processos.ea) using their respective case registration numbers (`202500001724` and `202500069962`).
 
 ## Citation
 
