@@ -49,11 +49,11 @@ The repository is organized as follows:
 │       ├── 202500069962_ACORDAO.pdf
 │       └── README.md
 └── src/
-    ├── PUCPRExtracaoDadosAbertosSTJ/       # Git submodule: STJ Open Data scraper
+    ├── UNIVExtracaoDadosAbertosSTJ/        # Git submodule: STJ Open Data scraper
     └── jupyter-notebooks/
-        ├── Preprocess_PUCPR_DataSet_STJ.ipynb
-        ├── preprocessing_pucpr.ipynb
-        ├── EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
+        ├── Preprocess_UNIV_DataSet_STJ.ipynb
+        ├── preprocessing_univ.ipynb
+        ├── EDA_UNIV_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
         ├── BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
         └── README.md
 ```
@@ -67,14 +67,14 @@ The repository is organized as follows:
   - `archictecture/`: Conceptual architecture and workflow diagrams illustrating the sliding-window chunking, transformer backbone processing, and contextual representation pooling mechanisms (`proposal.png` / `proposal.pdf`).
   - `samples/`: Representative samples of STJ judicial documents (monocratic decision and collegiate judgment) for qualitative analysis of model inputs, with documentation and verification links to the official court portal.
 
-- **`src/PUCPRExtracaoDadosAbertosSTJ/`**:
+- **`src/UNIVExtracaoDadosAbertosSTJ/`**:
   - Git submodule linking to the extraction tool used to harvest raw Habeas Corpus proceedings and judicial metadata from the STJ Open Data Portal.
 
 - **`src/jupyter-notebooks/`**:
   - Detailed parameter guide and step-by-step instructions available in [`src/jupyter-notebooks/README.md`](src/jupyter-notebooks/README.md).
-  - `Preprocess_PUCPR_DataSet_STJ.ipynb`: Loads extracted decisions, parses judicial metadata (judge/rapporteur, case registry, full text), and formats binary classification labels.
-  - `preprocessing_pucpr.ipynb`: Implements text normalization routines and linguistic preprocessing considerations specifically designed for legal texts.
-  - `EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`: Conducts exploratory data analysis, token length distribution profiling, undersampling for class balance, and dataset splitting for short vs. long text evaluation.
+  - `Preprocess_UNIV_DataSet_STJ.ipynb`: Loads extracted decisions, parses judicial metadata (judge/rapporteur, case registry, full text), and formats binary classification labels.
+  - `preprocessing_univ.ipynb`: Implements text normalization routines and linguistic preprocessing considerations specifically designed for legal texts.
+  - `EDA_UNIV_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`: Conducts exploratory data analysis, token length distribution profiling, undersampling for class balance, and dataset splitting for short vs. long text evaluation.
   - `BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb`: Implements model training, fine-tuning, and inference across BERT-based models (Legal BERT, Legal-BERTimbau, BERTimbau, and Multilingual BERT), incorporating sliding-window segmentation, pooling aggregation strategies, ROC evaluation curves, and computational latency trade-offs.
 
 - **Root Files**:

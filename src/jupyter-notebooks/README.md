@@ -14,11 +14,11 @@ This directory contains the experimental notebooks implementing the end-to-end f
 The notebooks are organized sequentially according to the project pipeline:
 
 ```text
-Preprocess_PUCPR_DataSet_STJ.ipynb
+Preprocess_UNIV_DataSet_STJ.ipynb
        │
-       ├── imports functions from ──► preprocessing_pucpr.ipynb
+       ├── imports functions from ──► preprocessing_univ.ipynb
        ▼
-EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
+EDA_UNIV_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb
        ▼
 BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 ```
@@ -27,7 +27,7 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 
 ## Detailed Notebook Descriptions
 
-### 1. `Preprocess_PUCPR_DataSet_STJ.ipynb`
+### 1. `Preprocess_UNIV_DataSet_STJ.ipynb`
 *Data Consolidation, Metadata Extraction, and Label Structuring*
 
 - **Purpose**: Consolidates raw public data harvested from the STJ Open Data Portal and builds the unified tabular dataset for the research.
@@ -46,7 +46,7 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 
 ---
 
-### 2. `preprocessing_pucpr.ipynb`
+### 2. `preprocessing_univ.ipynb`
 *Legal NLP Normalization & Linguistic Structure Preservation*
 
 - **Purpose**: Provides specialized textual preprocessing routines tailored specifically for Transformer-based architectures operating on Brazilian legal texts.
@@ -59,7 +59,7 @@ BERT_HabeasCorpusSTJ_(Train_and_Inference_Models).ipynb
 
 ---
 
-### 3. `EDA_PUCPR_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`
+### 3. `EDA_UNIV_DataSet_STJ(Tokenization_Undersampling_and_Tradeoff).ipynb`
 *Exploratory Analysis, Token Length Profiling, Class Balancing & Dataset Partitioning*
 
 - **Purpose**: Analyzes textual and class distributions, defines document length thresholds, balances classes via undersampling, and produces the official train/test splits.
