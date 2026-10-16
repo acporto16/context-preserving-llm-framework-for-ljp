@@ -1,0 +1,3 @@
+[submodule "src/PUCPRExtracaoDadosAbertosSTJ"]
+	path = src/PUCPRExtracaoDadosAbertosSTJ
+	url = https://github.com/acporto16/PUCPRExtracaoDadosAbertosSTJ.git
